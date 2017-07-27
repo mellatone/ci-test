@@ -1,21 +1,22 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 before_install:
-  - npm config set spin false
-  - npm install -g phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-
+- npm install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: jbnzsT+ePaDM6iEx7+ECb5A7QCusgWwu/6yIl+yqVm2IX4y2xWba37FYdtPGK1hbrEfz78VFTr1cRrTqami5vu+tt0oxLrJ1mz5XNCj2si3IbYrEFjxv4MwWh9okhoHKUfsZymz0Dz/rp0Z5edJ7X9XUVxkAWV3bneHNmel2s4XkCQLeGniuWS4QGXx1n6iPsXk4tfxRweyrmlf/mZjirskEQJfn7dzpmJuVBZvVNBiw/D3EEl4AnJiO/9FslScrMRI/qn6CZUPjFILREN/mTGmBlQu8eaUcVWrBswA3mHDDY9Qa13JcEudoNP+BDO5MeCT3ZoMDYt8qLf0wniJFTmNMGC+x1j1zARTXD+PT+vAnaEPs5mjg+bSmbaqPznXc8DXpZyNOlXcZy/AAU3+G9qjxWzohLIJs0zcgNTBcWwznUQd/MV47mUbFtGRU+E0oT5vwXnsqOdPVDlltstvBVLVw6Q8OwmwzKvA2E6UqY4czOOLjmFP4PF3cim+2SnqKKvG88wfod5Dt60Kb3FLv0QV3WcKMeBoH5yWzQo1YWSzj3jrUPKCHzxQKbcjdvmGhLGbrBpQA5vtnbcCqeFsakvS37s1O3yLmwhtHWrJxHSzcm5ZQ7SoQmOMrxdA4qcANmvh1XVCw1xr6qAOkBjADbiafb1U5TKAdme5C+ZLSHCI=
+  app: evening-beach-58414
+  on:
+    repo: mellatone/ci-test
