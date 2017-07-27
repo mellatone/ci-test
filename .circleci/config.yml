@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-      - run: yarn install -g phantomjs-prebuilt
+      - run: yarn global add phantomjs-prebuilt
       - run: phantomjs --version
 
       - save_cache:
